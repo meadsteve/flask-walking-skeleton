@@ -7,4 +7,13 @@ services:
     volumes:
       - ./:/app/
     ports:
-    - "5000:5000"
+      - "5000:5000"
+    environment:
+      - REMOTE_SERVICE_URL=http://fake_remote_service:8083
+
+  fake_remote_service:
+    image: jordimartin/mmock
+    volumes:
+      - ./docker/fake_remote_service:/config
+    ports:
+      - "8082:8082"
