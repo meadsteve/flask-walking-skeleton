@@ -9,6 +9,7 @@ services:
     ports:
       - "5000:5000"
     environment:
+      - FLASK_ENV=development
       - REMOTE_SERVICE_URL=http://fake_remote_service:8083
     depends_on:
       - fake_remote_service
